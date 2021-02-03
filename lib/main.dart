@@ -1,18 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:practice_crio/mainpage.dart';
-import 'mainpage.dart';
+import 'package:practice_crio/login.dart';
 
 void main() {
-  runApp(PracticeCrio());
+  runApp(MyApp());
 }
 
-class PracticeCrio extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainPage(),
+      home: LoginPage(),
     );
   }
 }
+
+
+// class PracticeCrio extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: MainPage(),
+//     );
+//   }
+// }
 
 

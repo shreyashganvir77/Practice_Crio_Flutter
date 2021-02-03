@@ -16,6 +16,9 @@ Widget card1 = Padding(
   ),
 );
 
+
+
+
 class Dashboard extends StatefulWidget {
   @override
   _DashboardState createState() => _DashboardState();
@@ -24,77 +27,169 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Your Companion',
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('Your Companion',),
-            elevation: 20.0,
-            shadowColor: Colors.orangeAccent,
-            backgroundColor: Colors.deepOrange,
-            leading: GestureDetector(
-              child: Icon(
-                Icons.menu,
-              ),
-              //onTap(){} ,
-            ),
-          ),
-          backgroundColor: Colors.white,
-          body: ListView(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    height: 70.0,
-                    color: Colors.deepOrange,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Container(
-                      height: 42.0,
-                      decoration: BoxDecoration(
-                        color: Colors.deepOrangeAccent,
-                        borderRadius: BorderRadius.circular(40.0),
-                      ),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top:8.0, left: 45.0, bottom: 8.0),
-                            child: FlatButton(
-                              color: Colors.deepOrangeAccent,
-                              onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) =>Tasks()));
-                              },
-                              child: Text('Tasks', style: TextStyle(color: Colors.black,fontSize: 25.0, fontWeight: FontWeight.w600, fontFamily: 'fonts/Roboto-Black.ttf'),),
-                            ),
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Your Companion',),
+          elevation: 20.0,
+          shadowColor: Colors.orangeAccent,
+          backgroundColor: Colors.deepOrange,
+        ),
+        backgroundColor: Colors.white,
+        body: ListView(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          children: [
+            Stack(
+              children: [
+                Container(
+                  height: 70.0,
+                  color: Colors.deepOrange,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                    height: 42.0,
+                    decoration: BoxDecoration(
+                      color: Colors.deepOrangeAccent,
+                      borderRadius: BorderRadius.circular(40.0),
+                    ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top:8.0, left: 45.0, bottom: 8.0),
+                          child: GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) =>Tasks()));
+                            },
+                            child: Text('Tasks', style: TextStyle(color: Colors.black,fontSize: 25.0, fontWeight: FontWeight.w600, fontFamily: 'fonts/Roboto-Black.ttf'),),
                           ),
-                          SizedBox(
-                            width: 30.0,
+                        ),
+                        SizedBox(
+                          width: 80.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: GestureDetector(
+                            // onTap: (){
+                            //   Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
+                            // },
+                            child: Text('Dashboard', style: TextStyle(color: Colors.white,fontSize: 25.0, fontWeight: FontWeight.w600, fontFamily: 'fonts/Roboto-Black.ttf')),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: FlatButton(
-                              color: Colors.deepOrangeAccent,
-                              onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
-                              },
-                              child: Text('Dashboard', style: TextStyle(color: Colors.white,fontSize: 25.0, fontWeight: FontWeight.w600, fontFamily: 'fonts/Roboto-Black.ttf')),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
+                ),
+              ],
+            ),
+            card1,
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+              child: Text(
+                'Congratulations! You met more people today, go sausage party',
+                style: TextStyle(
+                    fontFamily: 'fonts/Roboto-Black.ttf',
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.w400),
               ),
-              card1,
-
-            ],
-          )
-      ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+          ],
+        )
     );
   }
 }
+
+
+
+
+
+
+// class Dashboard extends StatefulWidget {
+//   @override
+//   _DashboardState createState() => _DashboardState();
+// }
+//
+// class _DashboardState extends State<Dashboard> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//           appBar: AppBar(
+//             title: Text('Your Companion',),
+//             elevation: 20.0,
+//             shadowColor: Colors.orangeAccent,
+//             backgroundColor: Colors.deepOrange,
+//           ),
+//           backgroundColor: Colors.white,
+//           body: ListView(
+//             scrollDirection: Axis.vertical,
+//             shrinkWrap: true,
+//             children: [
+//               Stack(
+//                 children: [
+//                   Container(
+//                     height: 70.0,
+//                     color: Colors.deepOrange,
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.all(15.0),
+//                     child: Container(
+//                       height: 42.0,
+//                       decoration: BoxDecoration(
+//                         color: Colors.deepOrangeAccent,
+//                         borderRadius: BorderRadius.circular(40.0),
+//                       ),
+//                       child: Row(
+//                         children: [
+//                           Padding(
+//                             padding: const EdgeInsets.only(top:8.0, left: 45.0, bottom: 8.0),
+//                             child: GestureDetector(
+//                               onTap: (){
+//                                 Navigator.push(context, MaterialPageRoute(
+//                                     builder: (context) =>Tasks()));
+//                               },
+//                               child: Text('Tasks', style: TextStyle(color: Colors.black,fontSize: 25.0, fontWeight: FontWeight.w600, fontFamily: 'fonts/Roboto-Black.ttf'),),
+//                             ),
+//                           ),
+//                           SizedBox(
+//                             width: 80.0,
+//                           ),
+//                           Padding(
+//                             padding: const EdgeInsets.all(8.0),
+//                             child: GestureDetector(
+//                               // onTap: (){
+//                               //   Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
+//                               // },
+//                               child: Text('Dashboard', style: TextStyle(color: Colors.white,fontSize: 25.0, fontWeight: FontWeight.w600, fontFamily: 'fonts/Roboto-Black.ttf')),
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               card1,
+//               Padding(
+//                 padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+//                 child: Text(
+//                   'Congratulations! You met more people today, go sausage party',
+//                   style: TextStyle(
+//                       fontFamily: 'fonts/Roboto-Black.ttf',
+//                       fontSize: 22.0,
+//                       fontWeight: FontWeight.w400),
+//                 ),
+//               ),
+//               SizedBox(
+//                 height: 20.0,
+//               ),
+//             ],
+//           )
+//       ),
+//     );
+//   }
+// }

@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  animations: ^1.1.2
   flutter:
     sdk: flutter
 
@@ -32,6 +33,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  google_fonts: ^2.0.0
+  firebase_auth: ^1.0.0
+  firebase_core: ^1.0.0
+  google_sign_in: ^5.0.0
+  provider: ^5.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -51,6 +58,11 @@ flutter:
     - assets/meditaion.jpg
     - assets/exercise.png
     - assets/party.png
+    - assets/profile_photo.png
+    - assets/monkey.png
+    - assets/google.png
+    - assets/facebook.png
+    - assets/twitter.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

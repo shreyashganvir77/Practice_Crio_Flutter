@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1008009643417",
+    "project_id": "crioapporange",
+    "storage_bucket": "crioapporange.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008009643417:android:019ca263af58c7264e3f08",
+        "android_client_info": {
+          "package_name": "com.example.practice_crio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1008009643417-kcktraj66uc469om9lnbq03htuqus1d9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.practice_crio",
+            "certificate_hash": "c74f17eba5261a548bff844b9ad7e09e53b60dad"
+          }
+        },
+        {
+          "client_id": "1008009643417-bva8ueh7jqlfvpqlm82helk1mfiigrei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYBfU88Gy8CPekn-sZ7L0ZCj8AjsyRy9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1008009643417-bva8ueh7jqlfvpqlm82helk1mfiigrei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
