@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dashboard.dart';
@@ -6,15 +8,15 @@ List<Widget> Carditems = [card1, card2, card3, card4];
 
 Widget card1 = Padding(
   padding: EdgeInsets.all(10.0),
-  child: Container(
-    height: 300.0,
-    //color: Colors.blue,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
-        image: DecorationImage(
-          image: AssetImage('assets/parks_families.jpg'),
-          fit: BoxFit.fill,
-        )),
+  child: Card(
+    child: Image(image: AssetImage('assets/parks_families.jpg'),
+      height: 250,
+      fit: BoxFit.fill,
+    ),
+      margin: EdgeInsets.all(10.0),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24.0),
+      )
   ),
 );
 Widget card2 = Padding(

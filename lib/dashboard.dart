@@ -91,7 +91,19 @@ class _DashboardState extends State<Dashboard> {
                 ],
               ),
               card1,
-
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                child: Text(
+                  'Congratulations! You met more people today, go sausage party',
+                  style: TextStyle(
+                      fontFamily: 'fonts/Roboto-Black.ttf',
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.w400),
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
             ],
           )
       ),
