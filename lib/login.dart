@@ -3,11 +3,16 @@ import 'package:practice_crio/mainpage.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:practice_crio/authentication.dart';
 
 class LoginPage extends StatelessWidget {
+  String email;
+  String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -45,6 +50,9 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 28.0, right: 28.0, top: 30.0),
                       child: TextFormField(
+                        onChanged: (val){
+                          email = val.trim();
+                        },
                         style: GoogleFonts.roboto(
                           fontSize: 22.0,
                           color: Colors.black,
@@ -75,6 +83,9 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 28.0, right: 28.0),
                       child: TextFormField(
+                        onChanged: (val){
+                          password = val.trim();
+                        },
                         style: GoogleFonts.roboto(
                           fontSize: 22.0,
                           color: Colors.black,
@@ -127,34 +138,43 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 25.0),
                       child: MaterialButton(
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>MainPage(),),);
+                        elevation: 10.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          side: BorderSide.none
+                        ),
+                        onPressed: () async {
+                          dynamic result = await context.read<AuthService>().signIn(email, password);
+                          if(result == "Signed In Successfully"){
+                            print('Signed In');
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>MainPage(),),);
+                          }
+                          else{
+                            print("Error");
+                          }
                         },
-                        elevation: 20.0,
                         child: Container(
-                          clipBehavior: Clip.antiAlias,
+                          height: 40.0,
+                          width: 135.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [Colors.redAccent, Colors.orange],
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [Colors.deepOrange, Colors.orangeAccent],
                             ),
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          height: 42.0,
-                          width: 135.0,
                           child: Center(
                             child: Text(
                               'LogIn',
                               style: GoogleFonts.roboto(
-                                fontSize: 30.0,
                                 fontWeight: FontWeight.w700,
+                                fontSize: 25.0,
                                 color: Colors.white,
                               ),
                             ),
                           ),
                         ),
-                      clipBehavior: Clip.antiAlias,
                       ),
                     ),
                   ],
@@ -178,43 +198,50 @@ class LoginPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                MaterialButton(
+                  minWidth: 0.0,
+                  shape: CircleBorder(side: BorderSide(color: Colors.white),),
+                  color: Colors.white70,
+                  elevation: 3.0,
+                  onPressed: () async {
+                    dynamic result = await context.read<AuthService>().googleSI();
+                    if(result == "Signed In Successfully"){
+                      print('Signed In');
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MainPage(),),);
+                    }else{
+                      print("Error");
+                    }
+                  },
                   child: CircleAvatar(
                     radius: 22.0,
                     backgroundImage: AssetImage('assets/google.png',),
-                    child: MaterialButton(
-                      elevation: 10.0,
-                      onPressed: (){
-
-                      },
-                    ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                MaterialButton(
+                  shape: CircleBorder(side: BorderSide(color: Colors.white),),
+                  color: Colors.white70,
+                  elevation: 3.0,
+                  minWidth: 0.0,
+                  onPressed: (){
+
+                  },
                   child: CircleAvatar(
                     radius: 22.0,
                     backgroundImage: AssetImage('assets/facebook.png',),
-                    child: MaterialButton(
-                      elevation: 10.0,
-                      onPressed: (){
-
-                      },
-                    ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                MaterialButton(
+                  shape: CircleBorder(side: BorderSide(color: Colors.white),),
+                  color: Colors.blue,
+                  elevation: 3.0,
+                  minWidth: 0.0,
+                  clipBehavior: Clip.antiAlias,
+                  onPressed: (){
+
+                  },
                   child: CircleAvatar(
                     radius: 22.0,
                     backgroundImage: AssetImage('assets/twitter.png',),
-                    child: MaterialButton(
-                      elevation: 10.0,
-                      onPressed: (){
-
-                      },
-                    ),
                   ),
                 ),
               ],

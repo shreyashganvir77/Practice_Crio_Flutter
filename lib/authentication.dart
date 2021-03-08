@@ -5,6 +5,8 @@ class AuthService{
   final FirebaseAuth auth;
   AuthService({this.auth});
 
+  Stream<User> get onAuthStateChange => auth.authStateChanges();
+
   Future<String> signIn(String email, String password) async {
     try{
       dynamic result = await auth.createUserWithEmailAndPassword(email: email, password: password);
